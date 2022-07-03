@@ -1,11 +1,14 @@
 fn main() {
-    println!("Hello, world!");
-    variables_example();
+    shadowing();
 }
 
-fn variables_example(){
-    let mut x = 5;
-    println!("The value of x is: {x}");
-    x = 6;
-    println!("The value of x is: {x}");
+fn shadowing(){
+    let x = "   ";
+
+    {
+        let x = x.len();
+        println!("The value of x in the inner scope is: {x}");
+    }
+
+    println!("The value ox x is: {x}");
 }

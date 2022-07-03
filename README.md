@@ -37,3 +37,34 @@ const EXAMPLE = 123;
 ```
 
 | Dica: O nome das constantes é sempre em CAPS_LOCK. 
+
+## Shadowing
+É [closure](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures) do javascript com as especificidades do rust.
+```rust
+fn shadowing(){
+    let x = 5;
+    let x = x + 1;
+
+    {
+        let x = x*2;
+        println!("The value of x in the inner scope is: {x}");
+    }
+
+    println!("The value ox x is: {x}");
+}
+```
+O legall é que dentro do __shadowing__, quando recriamos uma variável com **let**, 
+a gente realmente cria uma nova variável. Isso significa que podemos alterar 
+o tipo, olha só:
+```rust
+fn shadowing(){
+    let x = "   ";
+
+    {
+        let x = x.len();
+        println!("The value of x in the inner scope is: {x}");
+    }
+
+    println!("The value ox x is: {x}");
+}
+```
